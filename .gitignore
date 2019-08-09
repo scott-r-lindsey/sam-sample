@@ -1,9 +1,11 @@
 # package directories
 node_modules
 jspm_packages
+config.sh
 
-# Serverless directories
-.serverless
+# aws sam
+package.yml
+/build/*
 
 # test output
 /output/*

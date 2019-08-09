@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  ServiceName:
+    Type: String
+    Default: sam-sample
+  Stage:
+    Type: String
+    Default: dev
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/index.handler
+      Runtime: nodejs10.x
+
+      FunctionName:
+        Fn::Join:
+          - '-'
+          - - !Ref ServiceName
+            - !Ref Stage
+            - 'hello-world'
+
