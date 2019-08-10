@@ -10,7 +10,6 @@ exports.handler = async () => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        foo: "bar",
         message: 'Hello world!',
         details: 'The sample code executed correctly',
         environment: process.env.environment,

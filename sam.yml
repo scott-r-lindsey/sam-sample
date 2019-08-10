@@ -10,6 +10,43 @@ Parameters:
     Default: dev
 
 Resources:
+
+  HelloWorldApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name:
+        Fn::Sub: ${ServiceName}-${Stage}-api
+      StageName:
+        Ref: Stage
+
+      DefinitionBody:
+
+        openapi: "3.0.1"
+        info:
+          title: "sample-api"
+          version: "v1.0"
+        paths:
+          /:
+            get:
+              summary: Says Hello
+              description: This is a sample endpoint
+              responses:
+                '200':
+                  description: "OK"
+                '500':
+                  description: "Internal Server Error"
+                  content: {}
+              x-amazon-apigateway-integration:
+                uri:
+                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${HelloWorldFunction.Arn}/invocations
+                responses:
+                  default:
+                    statusCode: "200"
+                passthroughBehavior: "when_no_match"
+                httpMethod: "POST"
+                contentHandling: "CONVERT_TO_TEXT"
+                type: "aws_proxy"
+
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
