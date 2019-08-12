@@ -9,7 +9,7 @@ To deploy the Lambda endpoint run ```./scripts/deploy_dev.sh``` or
 one of the other deploy scripts.
 
 You may run tests by running ```npm test```.  Tests by default will use [Istanbul](https://istanbul.js.org/)
-to generate a coverage report in ```coverage/lcov-report/```
+to generate a coverage report in ```output/coverage/jest/```
 
 To run the Lambda endpoint(s) locally, install the
 [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
