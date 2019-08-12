@@ -1,7 +1,7 @@
 # AWS SAM Sample
 
 This is sample project which imlements a single lambda endpoint via
-[AWS SAM])https://github.com/awslabs/serverless-application-model).
+[AWS SAM](https://github.com/awslabs/serverless-application-model).
 
 # Usage
 
