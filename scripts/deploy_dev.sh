@@ -17,7 +17,7 @@ STAGE=dev
 echo "CloudFormation packaging..."
 aws cloudformation package \
     --region ${REGION} \
-    --template-file sam.yml \
+    --template-file template.yml \
     --output-template-file build/${STAGE}-packaged-template.yml \
     --s3-bucket ${BUCKET} \
     --s3-prefix sam/${SERVICENAME}
